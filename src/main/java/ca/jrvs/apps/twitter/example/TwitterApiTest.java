@@ -1,4 +1,4 @@
-package ca.jrvs.apps.twitter;
+package ca.jrvs.apps.twitter.example;
 
 import java.util.Arrays;
 import oauth.signpost.OAuthConsumer;
@@ -37,7 +37,3 @@ public class TwitterApiTest {
 
     } // end of main
 }  // end of class
-
-
-
-

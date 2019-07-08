@@ -1,4 +1,5 @@
-package ca.jrvs.apps.example;
+package ca.jrvs.apps.twitter.example;
+
 
 import java.util.HashMap;
 import java.util.Map;
