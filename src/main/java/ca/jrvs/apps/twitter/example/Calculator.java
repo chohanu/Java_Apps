@@ -1,6 +1,6 @@
 package ca.jrvs.apps.twitter.example;
 
-public class Calculator {
+/*public class Calculator {
 
     public int evaluate(String expression)
     {
@@ -10,3 +10,4 @@ public class Calculator {
         return sum;
     }
 }
+*/

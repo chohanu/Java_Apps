@@ -17,10 +17,10 @@ public class ApacheHttpHelper implements HttpHelper
 
     public ApacheHttpHelper() {
 
-        String CONSUMER_KEY = "cHoLrEwsd1y64IfpDQJmXsTD7";
-        String CONSUMER_SECRET = "iA9VWkTipQfPaMlZey1qxJedULnvC3zG1ov3uW1NqSL3EkBxpw";
-        String ACCESS_TOKEN = "1060279575215693824-0LyYlhkFErfKJrG2tYD18Z1Hd5IcgN";
-        String TOKEN_SECRET = "2jw5VKvFApPSqrr2ik7YRwi6PAK7FLf6jq1FxYWucJqQb";
+        String CONSUMER_KEY = System.getenv("CONSUMER_KEY");
+        String CONSUMER_SECRET = System.getenv("CONSUMER_SECRET");
+        String ACCESS_TOKEN = System.getenv("ACCESS_TOKEN");
+        String TOKEN_SECRET=System.getenv("TOKEN_SECRET");
 
         OAuthConsumer consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY,CONSUMER_SECRET);
         consumer.setTokenWithSecret(ACCESS_TOKEN,TOKEN_SECRET);
@@ -31,10 +31,10 @@ public class ApacheHttpHelper implements HttpHelper
     @Override
     public HttpResponse httpPost (URI uri) throws Exception{
 
-        String CONSUMER_KEY = "cHoLrEwsd1y64IfpDQJmXsTD7";
-        String CONSUMER_SECRET = "iA9VWkTipQfPaMlZey1qxJedULnvC3zG1ov3uW1NqSL3EkBxpw";
-        String ACCESS_TOKEN = "1060279575215693824-0LyYlhkFErfKJrG2tYD18Z1Hd5IcgN";
-        String TOKEN_SECRET = "2jw5VKvFApPSqrr2ik7YRwi6PAK7FLf6jq1FxYWucJqQb";
+        String CONSUMER_KEY = System.getenv("CONSUMER_KEY");
+        String CONSUMER_SECRET = System.getenv("CONSUMER_SECRET");
+        String ACCESS_TOKEN = System.getenv("ACCESS_TOKEN");
+        String TOKEN_SECRET=System.getenv("TOKEN_SECRET");
 
         OAuthConsumer consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY,CONSUMER_SECRET);
         consumer.setTokenWithSecret(ACCESS_TOKEN,TOKEN_SECRET);
@@ -54,13 +54,15 @@ public class ApacheHttpHelper implements HttpHelper
 
     @Override
     public HttpResponse httpGet (URI uri) throws Exception{
-        String CONSUMER_KEY = "cHoLrEwsd1y64IfpDQJmXsTD7";
-        String CONSUMER_SECRET = "iA9VWkTipQfPaMlZey1qxJedULnvC3zG1ov3uW1NqSL3EkBxpw";
-        String ACCESS_TOKEN = "1060279575215693824-0LyYlhkFErfKJrG2tYD18Z1Hd5IcgN";
-        String TOKEN_SECRET = "2jw5VKvFApPSqrr2ik7YRwi6PAK7FLf6jq1FxYWucJqQb";
+
+        String CONSUMER_KEY = System.getenv("CONSUMER_KEY");
+        String CONSUMER_SECRET = System.getenv("CONSUMER_SECRET");
+        String ACCESS_TOKEN = System.getenv("ACCESS_TOKEN");
+        String TOKEN_SECRET=System.getenv("TOKEN_SECRET");
 
         OAuthConsumer consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY,CONSUMER_SECRET);
         consumer.setTokenWithSecret(ACCESS_TOKEN,TOKEN_SECRET);
+
 
         try {
 
