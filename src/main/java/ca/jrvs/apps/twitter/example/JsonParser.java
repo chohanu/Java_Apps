@@ -9,19 +9,19 @@ import java.io.IOException;
 
 public class JsonParser {
 
-    public static String toJson(Object object,boolean prettyJson,boolean includeNullValues) throws JsonProcessingException
+    public static String toJson(Object object /*,boolean prettyJson,boolean includeNullValues*/) throws JsonProcessingException
     {
 
         ObjectMapper mapper = new ObjectMapper();
-        if (prettyJson)
-        {
+       // if (prettyJson)
+       // {
             mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        }
+      //  }
 
-        if (includeNullValues)
-        {
+       // if (includeNullValues)
+       // {
             mapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
-        }
+       // }
         return  mapper.writeValueAsString(object);
 
 

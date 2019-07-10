@@ -1,7 +1,7 @@
 package ca.jrvs.apps.twitter.dao.helper;
 
+import ca.jrvs.apps.twitter.dao.helper.helpers.HttpHelper;
 import ca.jrvs.apps.twitter.dto.Tweet;
-import com.sun.xml.internal.ws.model.RuntimeModelerException;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 
@@ -12,14 +12,16 @@ import java.net.URISyntaxException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
+import static ca.jrvs.apps.twitter.example.JsonParser.toObjectFromJson;
+
 
 public class TwitterRestDao implements CrdRepository<Tweet,String> {
 
     //URI constants
     private static final String API_BASE_URI ="https://api.twitter.com";
-    private static final String POST_PATH ="/1.1/statuses/update.json";
-    private static final String SHOW_PATH="/1.1/statuses/show.json";
-    private static final String DELETE_PATH ="/1.1/statuses/destroy";
+    private static final String POST_URL ="/1.1/statuses/update.json";
+    private static final String SHOW_URL="/1.1/statuses/show.json";
+    private static final String DELETE_URL ="/1.1/statuses/destroy";
 
     //URI symbols
 
@@ -43,12 +45,17 @@ public class TwitterRestDao implements CrdRepository<Tweet,String> {
         try {
             uri = getPostUri(tweet);
 
-        } catch (URISyntaxException || UnsupportedEncodingException e)
+        } catch (URISyntaxException | UnsupportedEncodingException e)
         {
             throw new IllegalArgumentException("Invalid tweet Input");
         }
         //execute HTTP Request
-        HttpResponse response = httphelper.httpPost(uri);
+        HttpResponse response = null;
+        try {
+            response = httphelper.httpPost(uri);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //Validate response
         return parseResponseBody(response, HTTP_OK);
@@ -70,7 +77,16 @@ public class TwitterRestDao implements CrdRepository<Tweet,String> {
         }
 
         //execute HTTP Request
-        HttpResponse response = httphelper.httpPost(uri);
+        HttpResponse response = null;
+
+        try {
+
+            response = httphelper.httpGet(uri);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
 
         //Validate response
         return parseResponseBody(response,HTTP_OK);
@@ -89,6 +105,16 @@ public class TwitterRestDao implements CrdRepository<Tweet,String> {
         catch(URISyntaxException e){
             throw new IllegalArgumentException("Unable to construct URI",e);
 
+        }
+
+        //Execute HTTP Request
+        HttpResponse response = null;
+        try{
+             response = httphelper.httpPost(uri);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
         }
         return parseResponseBody(response, HTTP_OK);
     }
@@ -120,7 +146,7 @@ public class TwitterRestDao implements CrdRepository<Tweet,String> {
         }
 
         try{
-            return (Tweet) JsonUtil.toObjectFromJson(jsonStr,Tweet.class);
+            tweet= (Tweet) toObjectFromJson(jsonStr,Tweet.class);
         }
         catch (IOException e)
         {
@@ -137,7 +163,7 @@ protected URI getPostUri(Tweet tweet) throws URISyntaxException,UnsupportedEncod
 
     StringBuilder sb = new StringBuilder();
     sb.append(API_BASE_URI)
-            .append(POST_PATH)
+            .append(POST_URL)
             .append(QUERY_SYM);
     // what does this statement do?
 
@@ -157,7 +183,7 @@ protected URI getPostUri(Tweet tweet) throws URISyntaxException,UnsupportedEncod
     protected URI getShowUri(String id) throws URISyntaxException {
         StringBuilder sb = new StringBuilder();
         sb.append(API_BASE_URI)
-                .append(SHOW_PATH)
+                .append(SHOW_URL)
                 .append(QUERY_SYM);
         appendQueryParam(sb, "id", id, true);
         return new URI(sb.toString());
@@ -168,7 +194,7 @@ protected URI getPostUri(Tweet tweet) throws URISyntaxException,UnsupportedEncod
     protected URI getDeleteUri(String id) throws URISyntaxException {
         StringBuilder sb = new StringBuilder();
         sb.append(API_BASE_URI)
-                .append(DELETE_PATH)
+                .append(DELETE_URL)
                 .append("/")
                 .append(id)
                 .append(".json");
