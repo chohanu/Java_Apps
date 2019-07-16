@@ -2,7 +2,7 @@
 
 
 ---
-
+<p>I am still working on it.Hopefully I'll fiish it by today or at most by tomorrow evening</p>
 <p>**NOTE:**This file contains information about the three Java Applications found in the repository.</p>
 <p><strong>Java Grep Application</strong></p>
 <p><strong>Prerequisites</strong></p>
@@ -18,6 +18,9 @@ The file path is then stored to a list and the file contents are read and stored
 <p><strong>Usage</strong><br>
 How To Use: JavaGrepImp regex rootPath outFile<br>
 Example : JavaGrepImp .<em>data.</em> home/centos/dev /tmp/grep.out</p>
+
+
+
 <p><strong>Java DataBase Connectivity(JDBC) Application</strong></p>
 <p><strong>Prerequisite</strong><br>
 PostgreSQL</p>
@@ -29,6 +32,9 @@ PostgreSQL</p>
 <p><strong>CustomerDAO</strong> and <strong>OrderDAO</strong> executes the SQL queries.They contain CRUD operation methods.</p>
 <p><strong>Improvements</strong><br>
 SQL queries can be passed through Command Line Interface in future.</p>
+
+
+
 <p><strong>TwitterCLI Application</strong></p>
 <p><strong>Architecture</strong></p>
 <img src="/Twitter.PNG">
