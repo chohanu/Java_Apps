@@ -10,7 +10,6 @@
 1)PrintWriter<br>
 2)FileWriter<br>
 3)BufferedWriter</p>
-<p><strong>Architecture</strong></p>
 <p>This application searches for a java regex pattern and outputs the results to a file.This program has an interface,JavaGrep,that provides an abtraction of the methods and a class called JavaGrepImp that calls the “process” method.</p>
 <p><strong>Implementation</strong></p>
 <p>The program takes three arguments as program inputs and scans all the desired directories and subfolders recursively until the file path is found.<br>
@@ -24,10 +23,14 @@ Example : JavaGrepImp .<em>data.</em> home/centos/dev /tmp/grep.out</p>
 PostgreSQL</p>
 <p>This application builts a postgreSQL database that implements CRUD(Create,Read,Update,Delete) operations using Data Object Access(DAO) pattern.</p>
 <p><strong>Architecture</strong></p>
+<img src="/JDBC.PNG">
 <p><strong>JDBCExecutor</strong> runs the main method and executes the program. It allows the user to perform CRUD operations by receiving user input.</p>
 <p><strong>DatabaseConnectionManager</strong> connects to the database server.</p>
 <p><strong>CustomerDAO</strong> and <strong>OrderDAO</strong> executes the SQL queries.They contain CRUD operation methods.</p>
 <p><strong>Improvements</strong><br>
 SQL queries can be passed through Command Line Interface in future.</p>
 <p><strong>TwitterCLI Application</strong></p>
+<p><strong>Architecture</strong></p>
+<img src="/Twitter.PNG">
+
 
