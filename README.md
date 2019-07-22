@@ -8,7 +8,7 @@
 <p><strong>Introduction</strong></p>
 <p>This application allows you to create, read and delete tweets by using the Twitter Rest API</p>
 <p><strong>Architecture</strong></p>
-<img src="https://github.com/chohanu/Java_Apps/tree/master/assets/Twitter.PNG">
+<img src=assets/Twitter.PNG">
 <p><strong>Implementation</strong></p>
 <p>TwitterCliApp: Creates components and passes program arguments (user input) to TwitterCliRunner.</p>
 <p>TwitterCliRunner: Parses the user input and calls the methods from the TwitterServiceImp class.</p>
