@@ -10,11 +10,11 @@
 <p><strong>Architecture</strong></p>
 <img src="/Twitter.PNG">
 <p><strong>Implementation</strong></p>
-<p><strong>TwitterCliApp:</strong> Creates components and passes program arguments (user input) to TwitterCliRunner.</p>
-<p><strong>TwitterCliRunner:</strong> Parses the user input and calls the methods from the TwitterServiceImp class.</p>
-<p><strong>TwitterServiceImp:</strong> Provides business logic of the application. Validates and handle tweet Objects. Calls the methods from the TwitterRestDao class to pass the filtered data</p>
-<p><strong>TwitterRestDao:</strong> Constructs URI and passes it to ApacheHttpClient.Also,parses the response entity it gets from ApacheHttpClient.</p>
-<p><strong>ApacheHttpClient:</strong> Connects to Twitter Rest API and Handles authorization. Sends HTTP requests and gets a response.</p>
+<p>TwitterCliApp: Creates components and passes program arguments (user input) to TwitterCliRunner.</p>
+<p>TwitterCliRunner: Parses the user input and calls the methods from the TwitterServiceImp class.</p>
+<p>TwitterServiceImp: Provides business logic of the application. Validates and handle tweet Objects. Calls the methods from the TwitterRestDao class to pass the filtered data</p>
+<p>TwitterRestDao: Constructs URI and passes it to ApacheHttpClient.Also,parses the response entity it gets from ApacheHttpClient.</p>
+<p>ApacheHttpClient: Connects to Twitter Rest API and Handles authorization. Sends HTTP requests and gets a response.</p>
 <p><strong>Usage</strong></p>
 <p>Get a Twitter development account and get access to Keys and Tokens.Make sure they are stored into local machine’s environmental variables.</p>
 <p>To Post/Create a Tweet: <code>post "text" latitude:longitude</code></p>
@@ -52,9 +52,9 @@ The file path is then stored to a list and the file contents are read and stored
 <p>This application uses JAVA database connectivity to connect to a PostgreSQL database. It uses CRUD(Create,Read,Update,Delete) operations using Data Object Access(DAO) pattern. This application is modelled on a sales business and can create,delete,update information on a customer. It also retrieves order information.</p>
 <p><strong>Architecture</strong></p>
 <img src="/JDBC.PNG">
-<p><strong>JDBCExecutor</strong> runs the main method and executes the program. It allows the user to perform CRUD operations by receiving user input.</p>
-<p><strong>DatabaseConnectionManager</strong> connects to the database server.</p>
-<p><strong>CustomerDAO</strong> and <strong>OrderDAO</strong> executes the SQL queries.They contain CRUD operation methods.</p>
+<p>JDBCExecutor: runs the main method and executes the program. It allows the user to perform CRUD operations by receiving user input.</p>
+<p>DatabaseConnectionManager: connects to the database server.</p>
+<p><em>CustomerDAO</em> and <em>OrderDAO</em> executes the SQL queries.They contain CRUD operation methods.</p>
 <p><strong>Improvements</strong><br>
 SQL queries can be passed through Command Line Interface in future.</p>
 
