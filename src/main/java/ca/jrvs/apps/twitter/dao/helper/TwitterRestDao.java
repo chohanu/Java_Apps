@@ -208,9 +208,7 @@ protected URI getPostUri(Tweet tweet) throws URISyntaxException,UnsupportedEncod
         {
             sb.append(AMPERSAND);
         }
-        sb.append(key)
-                .append(EQUAL)
-                .append(value);
+        sb.append(key).append(EQUAL).append(value);
 
 }
 
