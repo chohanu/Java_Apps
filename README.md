@@ -8,7 +8,7 @@
 <p><strong>Introduction</strong></p>
 <p>This application allows you to create, read and delete tweets by using the Twitter Rest API</p>
 <p><strong>Architecture</strong></p>
-<img src="/Twitter.PNG">
+<img src="https://github.com/chohanu/Java_Apps/tree/master/assets/Twitter.PNG">
 <p><strong>Implementation</strong></p>
 <p>TwitterCliApp: Creates components and passes program arguments (user input) to TwitterCliRunner.</p>
 <p>TwitterCliRunner: Parses the user input and calls the methods from the TwitterServiceImp class.</p>
@@ -51,7 +51,7 @@ The file path is then stored to a list and the file contents are read and stored
 <p><strong>Introduction</strong></p>
 <p>This application uses JAVA database connectivity to connect to a PostgreSQL database. It uses CRUD(Create,Read,Update,Delete) operations using Data Object Access(DAO) pattern. This application is modelled on a sales business and can create,delete,update information on a customer. It also retrieves order information.</p>
 <p><strong>Architecture</strong></p>
-<img src="/JDBC.PNG">
+<img src="https://github.com/chohanu/Java_Apps/tree/master/assets/JDBC.PNG">
 <p>JDBCExecutor: runs the main method and executes the program. It allows the user to perform CRUD operations by receiving user input.</p>
 <p>DatabaseConnectionManager: connects to the database server.</p>
 <p><em>CustomerDAO</em> and <em>OrderDAO</em> executes the SQL queries.They contain CRUD operation methods.</p>
