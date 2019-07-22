@@ -22,7 +22,7 @@ public class Twitterbean {
 
 
         public static void main(String[] args) {
-            ApplicationContext context = new AnnotationConfigApplicationContext(TwitterCLIBean.class);
+            ApplicationContext context = new AnnotationConfigApplicationContext(Twitterbean.class);
             TwitterCLIRunner runner = context.getBean(TwitterCLIRunner.class);
             runner.run(args);
         }
