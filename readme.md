@@ -4,13 +4,12 @@
 ---
 
 <p>**NOTE:**This file contains information about the three Java Applications found in the repository.</p>
-<p><strong>TwitterCLI Application</strong></p>
+<h2 id="twittercli-application">TwitterCLI Application</h2>
 <p><strong>Introduction</strong></p>
 <p>This application allows you to create, read and delete tweets by using the Twitter Rest API</p>
 <p><strong>Architecture</strong></p>
-<img src="/Twitter.PNG">
 <p><strong>Implementation</strong></p>
-<p>TwitterCliApp:Creates components and passes program arguments (user input) to TwitterCliRunner.</p>
+<p><strong>TwitterCliApp:</strong> Creates components and passes program arguments (user input) to TwitterCliRunner.</p>
 <p><strong>TwitterCliRunner:</strong> Parses the user input and calls the methods from the TwitterServiceImp class.</p>
 <p><strong>TwitterServiceImp:</strong> Provides business logic of the application. Validates and handle tweet Objects. Calls the methods from the TwitterRestDao class to pass the filtered data</p>
 <p><strong>TwitterRestDao:</strong> Constructs URI and passes it to ApacheHttpClient.Also,parses the response entity it gets from ApacheHttpClient.</p>
@@ -23,7 +22,7 @@
 <p>This finds a tweet by ID and prints the tweet object into JSON format.</p>
 <p>To delete a Tweet: <code>delete "ids"</code></p>
 <p>This deletes a list of tweets by id</p>
-<p><strong>Java Grep Application</strong></p>
+<h2 id="java-grep-application">Java Grep Application</h2>
 <p><strong>Introduction</strong></p>
 <p>This application searches for a java regex pattern and outputs the results to a file.This program has an interface,JavaGrep,that provides an abtraction of the methods and a class called JavaGrepImp that calls the “process” method.</p>
 <p><strong>Implementation</strong></p>
@@ -47,7 +46,7 @@ The file path is then stored to a list and the file contents are read and stored
 <p><strong>Improvement</strong></p>
 <p>All the lines of a file are stored into a list. Allocating memory for the list can get problematic if the directory contains big files.</p>
 <p>Every type of file is being scanned to look for the regex pattern. Specifying the type of files to search for can improve time complexity</p>
-<p><strong>Java DataBase Connectivity(JDBC) Application</strong></p>
+<h2 id="java-database-connectivityjdbc-application">Java DataBase Connectivity(JDBC) Application</h2>
 <p><strong>Introduction</strong></p>
 <p>This application uses JAVA database connectivity to connect to a PostgreSQL database. It uses CRUD(Create,Read,Update,Delete) operations using Data Object Access(DAO) pattern. This application is modelled on a sales business and can create,delete,update information on a customer. It also retrieves order information.</p>
 <p><strong>Architecture</strong></p>
