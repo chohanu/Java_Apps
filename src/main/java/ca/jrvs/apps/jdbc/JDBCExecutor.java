@@ -27,7 +27,7 @@ public class JDBCExecutor {
                customer.setEmail("george.washington@wh.gov");
                customer.setPhone("(555) 555-6543");
                customer.setAddress("1234 Main st");
-               customer.setCity("Missisaauga");
+               customer.setCity("Mississauga");
                customer.setAddress("ON");
                customer.setZipCode("2212");
                customerDAO.create(customer);
@@ -40,11 +40,14 @@ public class JDBCExecutor {
               System.out.println(customer.getFirstname() + customer.getLastName());
 
 
+                /*
+                 // challenge dao
 
-                //challenge dao
-              //  OrderDAO orderDAO = new OrderDAO(connection);
-              //  Order order =orderDAO.findbyId(1000);
-              // System.out.println(order);
+               OrderDAO orderDAO = new OrderDAO(connection);
+               Order order =orderDAO.findbyId(1000);
+              System.out.println(order);
+
+                 */
 
 
 
