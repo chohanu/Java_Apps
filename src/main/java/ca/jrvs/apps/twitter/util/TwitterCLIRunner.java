@@ -2,7 +2,11 @@ package ca.jrvs.apps.twitter.util;
 
 import ca.jrvs.apps.twitter.dao.helper.CrdRepository;
 import ca.jrvs.apps.twitter.service.TwitterService;
+import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+
+@Component
 public class TwitterCLIRunner {
 
     public static CrdRepository dao;
@@ -22,7 +26,7 @@ public class TwitterCLIRunner {
 
        if(args[0].compareTo("post") == 0)
        {
-           parseandpostTweet(args);
+           parseTweet(args);
        }
 
        else if (args[0].compareTo("delete")== 0)
@@ -42,28 +46,28 @@ public class TwitterCLIRunner {
    }
 
 
-   protected void parseandpostTweet(String[] args)
-   {
+   protected void parseTweet(String[] args) {
 
-       if(args.length !=3)
-       {
+       if (args.length != 3) {
            throw new RuntimeException("usage post |text|lat:lon");
        }
 
        String text = args[1];
-       String[] coord = args[2].split(":");
+       String[] coordinates = args[2].split(":");
 
-       double lat = Double.parseDouble(coord[0]);
-       double longitude =Double.parseDouble(coord[1]);
+       double lat = Double.parseDouble(coordinates[0]);
+       double longitude = Double.parseDouble(coordinates[1]);
 
        try{
-           service.postTweet(text,lat,longitude);
+       service.postTweet(text, lat, longitude);
        }
-       catch(Exception e)
-       {
-           System.out.println("cannot post the tweet");
+       catch (IllegalArgumentException e)
+       {throw new IllegalArgumentException();
+       }
+
+
    }
-   }
+
 
    protected void showTheTweet(String[] args)
    {

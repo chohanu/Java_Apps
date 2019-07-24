@@ -7,46 +7,49 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.springframework.stereotype.Component;
 
 import java.net.URI;
 
+@Component
 public class ApacheHttpHelper implements HttpHelper
 {
     private HttpClient httpClient;
     private HttpResponse response;
+    String CONSUMER_KEY ;
+    String CONSUMER_SECRET ;
+    String ACCESS_TOKEN ;
+    String TOKEN_SECRET;
+    OAuthConsumer consumer;
 
-    public ApacheHttpHelper() {
-
-        String CONSUMER_KEY = System.getenv("CONSUMER_KEY");
-        String CONSUMER_SECRET = System.getenv("CONSUMER_SECRET");
-        String ACCESS_TOKEN = System.getenv("ACCESS_TOKEN");
-        String TOKEN_SECRET=System.getenv("TOKEN_SECRET");
-
-        OAuthConsumer consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY,CONSUMER_SECRET);
+    public ApacheHttpHelper()
+    {
+        this.CONSUMER_KEY = System.getenv("CONSUMER_KEY");
+        this.CONSUMER_SECRET = System.getenv("CONSUMER_SECRET");
+        this.ACCESS_TOKEN = System.getenv("ACCESS_TOKEN");
+        this.TOKEN_SECRET=System.getenv("TOKEN_SECRET");
+        this.consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY,CONSUMER_SECRET);
         consumer.setTokenWithSecret(ACCESS_TOKEN,TOKEN_SECRET);
+        this.httpClient= new DefaultHttpClient();
+    }    // end of constructor
 
-        httpClient= new DefaultHttpClient();
-    } // end of constructor
+
 
     @Override
     public HttpResponse httpPost (URI uri) throws Exception{
 
-        String CONSUMER_KEY = System.getenv("CONSUMER_KEY");
-        String CONSUMER_SECRET = System.getenv("CONSUMER_SECRET");
-        String ACCESS_TOKEN = System.getenv("ACCESS_TOKEN");
-        String TOKEN_SECRET=System.getenv("TOKEN_SECRET");
-
-        OAuthConsumer consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY,CONSUMER_SECRET);
-        consumer.setTokenWithSecret(ACCESS_TOKEN,TOKEN_SECRET);
-
-        try {
+        try
+        {
             HttpPost post = new HttpPost(uri);
             consumer.sign(post);
             response= httpClient.execute(post);
         }
 
 
-        finally{}
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
         return response;
 
@@ -55,26 +58,17 @@ public class ApacheHttpHelper implements HttpHelper
     @Override
     public HttpResponse httpGet (URI uri) throws Exception{
 
-        String CONSUMER_KEY = System.getenv("CONSUMER_KEY");
-        String CONSUMER_SECRET = System.getenv("CONSUMER_SECRET");
-        String ACCESS_TOKEN = System.getenv("ACCESS_TOKEN");
-        String TOKEN_SECRET=System.getenv("TOKEN_SECRET");
-
-        OAuthConsumer consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY,CONSUMER_SECRET);
-        consumer.setTokenWithSecret(ACCESS_TOKEN,TOKEN_SECRET);
-
-
         try {
 
             HttpGet get = new HttpGet(uri);
             consumer.sign(get);
-
             response = httpClient.execute(get);
 
-        }
+             }
 
-        finally{
-
+        catch (Exception e)
+        {
+           e.printStackTrace();
         }
 
         return response;

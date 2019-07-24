@@ -4,6 +4,7 @@ import ca.jrvs.apps.twitter.dao.helper.helpers.HttpHelper;
 import ca.jrvs.apps.twitter.dto.Tweet;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -14,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 
 import static ca.jrvs.apps.twitter.example.JsonParser.toObjectFromJson;
 
-
+@Component
 public class TwitterRestDao implements CrdRepository<Tweet,String> {
 
     //URI constants
@@ -58,7 +59,7 @@ public class TwitterRestDao implements CrdRepository<Tweet,String> {
         }
 
         //Validate response
-        return parseResponseBody(response, HTTP_OK);
+        return Responsebody(response, HTTP_OK);
 
     }
 
@@ -89,7 +90,7 @@ public class TwitterRestDao implements CrdRepository<Tweet,String> {
         }
 
         //Validate response
-        return parseResponseBody(response,HTTP_OK);
+        return Responsebody(response,HTTP_OK);
 
     }
 
@@ -116,12 +117,12 @@ public class TwitterRestDao implements CrdRepository<Tweet,String> {
         {
             e.printStackTrace();
         }
-        return parseResponseBody(response, HTTP_OK);
+        return Responsebody(response, HTTP_OK);
     }
 
 
 
-    protected  Tweet parseResponseBody(HttpResponse response,Integer okStatus)
+    protected  Tweet Responsebody(HttpResponse response,Integer okStatus)
     {
         Tweet tweet = null;
         // check response status

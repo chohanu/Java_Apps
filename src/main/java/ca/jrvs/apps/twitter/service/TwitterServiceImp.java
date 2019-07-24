@@ -30,14 +30,16 @@ public class TwitterServiceImp implements TwitterService
         try{
             Tweet resp = (Tweet) dao.create(postTweet);
         }
-        catch(Exception e)
-        {
-            System.out.println("Coul not post the tweet");
+
+            catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+
         }
+
     }
 
     public Tweet joinTweet(String text,Double lat,Double longitude) {
-        if (text.length() > MAX_LEN_TWEET || lat > 90.0 || longitude >180 || lat < -90 || longitude <-180 )
+        if (text.length() > MAX_LEN_TWEET || lat > 90.0 || lat < -90 || longitude >180  || longitude <-180 )
         {
             throw new IllegalArgumentException();
         }
@@ -68,7 +70,7 @@ public class TwitterServiceImp implements TwitterService
             }
             catch (Exception e)
             {
-                System.out.println("Couldnt delete the tweet");
+                e.printStackTrace();
             }
         }
     }
@@ -82,7 +84,7 @@ public class TwitterServiceImp implements TwitterService
             System.out.println(toJson(resp));
         }
         catch(Exception e) {
-            System.out.println("could not show your tweet");
+            e.printStackTrace();
         }
     }
 } // end of class
