@@ -17,16 +17,17 @@ import static org.junit.Assert.assertNotNull;
 public class TwitterRestDaoTest {
 
         private CrdRepository dao;
-        private Tweet actualTweet = new Tweet();
-        private Tweet showTweet = new Tweet();
-        private Tweet expectedTweet;
         private String id;
+        private Tweet actualTweet;
+        private Tweet showTweet;
+        private Tweet expectedTweet;
+
 
         @Before
-        public void settingUpTweet() {
-
-            String tweet = "Test tweet" + System.currentTimeMillis();
+        public void setup() {
             actualTweet = new Tweet();
+            showTweet = new Tweet();
+            String tweet = "Test tweet" + System.currentTimeMillis();
             actualTweet.setText(tweet);
             Coordinates coordinates = new Coordinates();
             coordinates.setCoordinates(Arrays.asList(15.0, 25.0));
@@ -66,6 +67,5 @@ public class TwitterRestDaoTest {
             assertNotNull(expectedtweet);
 
         }
-
-    }
+        } // end of class
 
