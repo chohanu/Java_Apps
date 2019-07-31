@@ -29,7 +29,8 @@ public class TwitterServiceImpTest_2 {
             try {
                 service.postTweet("another Tweet", 50.0, 230.0);
                 fail();
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException e)
+            {
                 e.printStackTrace();
             }
             }
