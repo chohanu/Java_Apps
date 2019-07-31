@@ -16,13 +16,11 @@ public class TwitterServiceImpTest_2 {
 
         @Mock
         private CrdRepository mockdao;
-
         @InjectMocks
         private TwitterServiceImp service;
-
         @Test
-        public void postTweet() {
-
+        public void postTweet()
+        {
             Tweet mocktweet = new Tweet();
             mocktweet.setText("Mock Tweet");
             when(mockdao.create(any())).thenReturn(mocktweet);
