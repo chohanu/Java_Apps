@@ -13,30 +13,23 @@ public class JavaGrepImp implements JavaGrep {
     public String getRegex() {
         return regex;
     }
-
     public void setRegex(String regex) {
         this.regex = regex;
     }
-
     public String getOutputfile() {
         return outputfile;
     }
-
     public void setOutputfile(String outputfile) {
         this.outputfile = outputfile;
     }
-
     public String getDirectorypath() {
         return directorypath;
     }
-
     public void setDirectorypath(String directorypath) {
         this.directorypath = directorypath;
     }
 
-
     public static void main(String[] args) {
-
 
         JavaGrepImp javagrep = new JavaGrepImp();
         javagrep.setRegex(args[0]);
@@ -56,12 +49,8 @@ public class JavaGrepImp implements JavaGrep {
     public void process() throws IOException {
 
         List<File> files = listFiles(this.getDirectorypath());
-
-
         List<String> matchedLines = new ArrayList<>();
         List<String> lineFromFiles;
-
-
         for (File file : files) {
             lineFromFiles = readLines(file);
 
@@ -70,8 +59,6 @@ public class JavaGrepImp implements JavaGrep {
                     matchedLines.add(line);
                 }
             }
-
-
         }
         writeToFile(matchedLines);
     }
@@ -82,19 +69,14 @@ public class JavaGrepImp implements JavaGrep {
 
         File directory = new File(rootDir);
         List<File> file = new ArrayList<>();
-
         for (File f : directory.listFiles()) {
             if (f.isDirectory()) {
                 file.addAll(listFiles(f.getPath()));
             } else {
                 file.add(f);
             }
-
         }
-        return file;
-
-
-    }
+        return file; }
 
 
     @Override
@@ -112,12 +94,7 @@ public class JavaGrepImp implements JavaGrep {
         } catch(Exception e) {
             e.printStackTrace();
         }
-
-        return lines;
-
-    }
-
-
+        return lines; }
 
     @Override
     public Boolean containsPattern(String line) {
@@ -125,10 +102,8 @@ public class JavaGrepImp implements JavaGrep {
 
     }
 
-
     @Override
     public void writeToFile(List<String> lines) throws IOException {
-
 
         FileOutputStream fs = new FileOutputStream(this.getOutputfile());
         OutputStreamWriter oswriter = new OutputStreamWriter(fs);
@@ -138,11 +113,4 @@ public class JavaGrepImp implements JavaGrep {
             bwriter.newLine();
         }
         bwriter.close();
-
-
-
-
-    }
-
-
-} // end of class
+    }}

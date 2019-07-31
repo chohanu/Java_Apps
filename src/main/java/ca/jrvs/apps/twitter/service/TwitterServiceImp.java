@@ -4,9 +4,7 @@ import ca.jrvs.apps.twitter.dao.helper.CrdRepository;
 import ca.jrvs.apps.twitter.dto.Coordinates;
 import ca.jrvs.apps.twitter.dto.Tweet;
 import com.fasterxml.jackson.core.JsonProcessingException;
-
 import java.util.Arrays;
-
 import static ca.jrvs.apps.twitter.example.JsonParser.toJson;
 
 public class TwitterServiceImp implements TwitterService
@@ -20,8 +18,6 @@ public class TwitterServiceImp implements TwitterService
         this.dao = dao;
     }
 
-
-
     @Override
     public void postTweet(String text,Double latitude,Double longitude)
     {
@@ -29,13 +25,11 @@ public class TwitterServiceImp implements TwitterService
 
         try{
             Tweet resp = (Tweet) dao.create(postTweet);
-        }
-
-            catch (IllegalArgumentException e) {
+            }
+        catch (IllegalArgumentException e)
+            {
                 System.out.println(e.getMessage());
-
-        }
-
+            }
     }
 
     public Tweet joinTweet(String text,Double lat,Double longitude) {

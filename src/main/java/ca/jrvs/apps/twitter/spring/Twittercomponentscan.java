@@ -1,7 +1,7 @@
 package ca.jrvs.apps.twitter.spring;
 
 
-import ca.jrvs.apps.twitter.util.TwitterCLIRunner;
+import ca.jrvs.apps.twitter.TwitterCLIRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;

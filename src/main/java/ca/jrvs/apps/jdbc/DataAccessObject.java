@@ -30,8 +30,6 @@ protected int getLastVal(String sequence)
         ResultSet rs = statement.executeQuery(sql);
         while(rs.next()){
             key=rs.getInt(1);
-
-
         }
         return key;
     }

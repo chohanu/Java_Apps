@@ -1,5 +1,5 @@
 package ca.jrvs.apps.twitter.spring;
-import ca.jrvs.apps.twitter.util.TwitterCLIRunner;
+import ca.jrvs.apps.twitter.TwitterCLIRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,8 +22,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
         public static void main(String[] args) {
             SpringApplication app = new SpringApplication(Twitterspringboot.class);
-
-            //Turn off web
             app.setWebApplicationType(WebApplicationType.NONE);
             app.run(args);
         }

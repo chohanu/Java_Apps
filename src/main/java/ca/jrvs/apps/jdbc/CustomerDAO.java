@@ -9,12 +9,8 @@ import java.sql.ResultSet;
 
 public class CustomerDAO extends DataAccessObject<Customer> {
 
-
-
-
     private static final String INSERT = "INSERT INTO customer (first_name,last_name," + "email,phone,address,city,state,zipcode) VALUES(?,?,?,?,?,?,?,?)";
     private static final String GET_ONE =" SELECT customer_id,first_name,last_name," + "email,phone,address,city,state,zipcode FROM customer Where customer_id=?";
-
 
     public CustomerDAO(Connection connection) {
         super(connection);
@@ -37,8 +33,6 @@ public class CustomerDAO extends DataAccessObject<Customer> {
                 customer.setCity(rs.getString("city"));
                 customer.setState(rs.getString("state"));
                 customer.setZipCode(rs.getString("zipcode"));
-
-
             }
 
         }
@@ -80,12 +74,11 @@ public class CustomerDAO extends DataAccessObject<Customer> {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
-
-
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(long id)
+    {
 
     }
-} // end of class
+}

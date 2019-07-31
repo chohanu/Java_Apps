@@ -1,7 +1,4 @@
 package ca.jrvs.apps.twitter.dao.helper.helpers;
-
-
-//import oauth.signpost.http.HttpResponse;
 import java.net.URI;
 import org.apache.http.HttpResponse;
 

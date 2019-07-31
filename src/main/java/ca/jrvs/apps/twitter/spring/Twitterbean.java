@@ -1,9 +1,9 @@
 package ca.jrvs.apps.twitter.spring;
 
 
+import ca.jrvs.apps.twitter.TwitterCLIRunner;
 import ca.jrvs.apps.twitter.service.TwitterService;
 import ca.jrvs.apps.twitter.service.TwitterServiceImp;
-import ca.jrvs.apps.twitter.util.TwitterCLIRunner;
 import ca.jrvs.apps.twitter.dao.helper.CrdRepository;
 import ca.jrvs.apps.twitter.dao.helper.TwitterRestDao;
 import ca.jrvs.apps.twitter.dao.helper.helpers.ApacheHttpHelper;
@@ -42,6 +42,4 @@ public class Twitterbean {
         HttpHelper helper() {
             return new ApacheHttpHelper();
         }
-
-
 }

@@ -87,16 +87,11 @@ public class OrderDAO extends DataAccessObject<Order> {
 
             }
             order.setOrderLine(orderLines);
-        } // end of try
-
+        }
         catch(SQLException e){
             e.printStackTrace();
             throw new RuntimeException(e);
         }
-
-        return order;
-
-    } // end of findby
-
-}// end of class
+        return order; }
+}
 
